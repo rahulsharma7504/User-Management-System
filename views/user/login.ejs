@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beautiful Login Page</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #aec2d6;
+    }
+    .container{
+      background-color: rgba(176, 217, 219, 0);
+    }
+    .login-box {
+      max-width: 400px;
+      margin: 100px auto;
+      background-color: #d4c7c7;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    .form-control:focus {
+      box-shadow: none;
+    }
+    .login-btn {
+      background-color: #389683;
+      color: #fff;
+      border: none;
+    }
+    .login-btn:hover {
+      background-color: #0056b3;
+    }
+    .login-link {
+      color: #007bff;
+    }
+    .login-link:hover {
+      text-decoration: underline;
+    }
+    /* Add this CSS block to create a smooth color change effect for the input fields */
+/* Add this CSS inside the <style> tag in your HTML */
+  @keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #333;
+  }
+}
+
+/* Apply the animation to the login heading */
+/* Add this CSS inside the <style> tag in your HTML */
+  @keyframes neonGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.8);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.8), 0 0 20px rgba(0, 255, 0, 0.8), 0 0 30px rgba(0, 255, 0, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(0, 0, 255, 0.8), 0 0 20px rgba(0, 0, 255, 0.8), 0 0 30px rgba(0, 0, 255, 0.8);
+  }
+}
+
+/* Apply the neon animation to each content */
+.login-box h2,
+.login-box a,
+.login-btn {
+  animation: neonGlow 2s infinite;
+}
+
+
+.login-box h2 {
+  background: linear-gradient(45deg, #ff00cc, #0099ff, #33ff33, #ffcc00);
+  background-size: 200% 200%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: neonTextAnimation 5s linear infinite;
+}
+
+
+  </style>
+</head>
+<body style="background-color: #333;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="login-box">
+          <h2>Login</h2>
+          <form action="/ums/login" method="post">
+            <%
+            if(typeof message !='undefined'){
+              %>
+              <h4><%= message %></h4>
+              <%
+            }
+            %>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control"  name="email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <a href="/ums/forget">Forget Password</a><br><br>
+            <a href="/ums/admin" class="m-4">For Admin login</a>
+            <a href="/ums/resend">Re-send Verify Mail</a>
+            <button type="submit" class="btn btn-danger btn-block login-btn">Login</button>
+          </form>
+          <p class="text-center mt-3">
+            Don't have an account? <a href="rajister" class="login-link">Sign up</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and jQuery (place at the end of the body for faster loading) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

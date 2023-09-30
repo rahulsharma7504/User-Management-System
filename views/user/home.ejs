@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>User Management System</title>
+  <!-- Include Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Additional custom styles can be added here (if needed) */
+  </style>
+</head>
+
+<body class="bg-gray-100">
+  <header class="bg-red-600 text-white py-6">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-semibold">User Management System</h1>
+      <a href="/ums/logout" class="logout">Log Out</a>
+    </div>
+  </header>
+  <main class="py-8">
+    <div class="container mx-auto px-4">
+      <div class="mb-8">
+        <h2 class="text-2xl font-semibold">Welcome</h2>
+        <table class="w-full border-collapse border border-gray-400 mt-4">
+          <thead>
+            <tr>
+              <th class="border border-gray-400 px-4 py-2">Image</th>
+              <th class="border border-gray-400 px-4 py-2">Name</th>
+              <th class="border border-gray-400 px-4 py-2">Email</th>
+              <th class="border border-gray-400 px-4 py-2">Mobile-No</th>
+              <th class="border border-gray-400 px-4 py-2">Verified</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-400 px-4 py-2"><img src="images/<%= userprofile.image %>" class="rounded-md" width="70px" height="70px" alt="User Image"></td>
+              <td class="border border-gray-400 px-4 py-2"><%= userprofile.name %></td>
+              <td class="border border-gray-400 px-4 py-2"><%= userprofile.email %></td>
+              <td class="border border-gray-400 px-4 py-2"><%= userprofile.mobile %></td>
+              <td class="border border-gray-400 px-4 py-2">Yes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <a href="edit?id=<%= userprofile._id %>" class="block bg-blue-500 text-white px-4 py-2 rounded-md text-center hover:bg-blue-600 transition duration-200">
+        Edit Profile
+      </a>
+    </div>
+  </main>
+</body>
+
+</html>

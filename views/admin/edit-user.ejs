@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+  /* styles.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 500px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.form label {
+  display: block;
+  font-weight: bold;
+}
+
+.form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.radio-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .form {
+    max-width: 300px;
+  }
+}
+
+</style>
+
+<body>
+  <p style="display: grid; font-weight: 900; align-items: center; justify-content: center;">Welcome to the user edit panel. Here, you can update user information.</p>
+  <div class="container">
+   
+    <form action="" method="post" class="form">
+      <label for="name">
+        <input type="text" name="name" value="<%= data.name %>" placeholder="Enter name">
+      </label>
+      <label for="email">
+        <input type="email" name="email" value="<%= data.email %>" placeholder="User mail">
+      </label>
+      <label for="mobile">
+        <input type="text" name="mobile" value="<%= data.mobile %>" placeholder="user mobile">
+      </label>
+      <input type="hidden" name="data" value="<%= data._id %>" id="">
+      <div class="radio-container">
+        <label>Verify
+          <input type="radio" name="is_verified" value="1" <% if(data.is_verified == 1) { %>checked<% } %>>
+        </label>
+        <label>Not Verify
+          <input type="radio" name="is_verified" value="0" <% if(data.is_verified == 0) { %>checked<% } %>>
+        </label>
+      </div>
+      <button type="submit">Update User</button>
+    </form>
+  </div>
+</body>
+
+</html>

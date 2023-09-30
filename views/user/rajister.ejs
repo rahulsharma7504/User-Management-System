@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sign Up Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 40rem;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 10 50 10px rgba(212, 14, 14, 0.1);
+    }
+
+    .container h2 {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 7px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .form-group input[type="file"] {
+      padding: 0;
+    }
+
+    .form-group button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .form-group button:hover {
+      background-color: #45a049;
+    }
+
+    .form-toggle {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .form-toggle a {
+      color: #888;
+      text-decoration: none;
+    }
+
+    .form-toggle a:hover {
+      text-decoration: underline;
+    }
+
+    .signup-form {
+      display: none;
+    }
+
+    .signup-form .form-toggle {
+      margin-bottom: 0;
+    }
+
+    .signup-form .form-toggle a {
+      color: #4CAF50;
+    }
+
+    .show-signup .login-form {
+      display: none;
+    }
+
+    .show-signup .signup-form {
+      display: block;
+    }
+  </style>
+</head>
+
+<body style="background-color: gray;">
+  <div class="container">
+    <h2>Sign Up</h2>
+    <div class="form-toggle">
+      <a href="/rajister" id="signup-toggle">Sign Up</a> /
+      <a href="login" id="login-toggle">Login</a>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="mobile">Mobile:</label>
+        <input type="tel" id="mobile" name="mobile">
+      </div>
+      <div class="form-group">
+        <label for="image">File:</label>
+        <input type="file" id="file" name="image">
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+      </div>
+      <div class="form-group">
+        <button type="submit" id="sub"> Sign Up</button>
+      </div>
+    </form>
+  </div>
+  <%
+  if(typeof message !='undefined'){
+    %>
+    <h4><%= message %></h4>
+    <%
+  }
+  %>
+  <script>
+    var signupToggle = document.getElementById("signup-toggle");
+    var loginToggle = document.getElementById("login-toggle");
+    var signupForm = document.querySelector(".signup-form");
+    var loginForm = document.querySelector(".login-form");
+
+    signupToggle.addEventListener("click", function (event) {
+      event.preventDefault();
+      signupForm.classList.add("show-signup");
+      loginForm.classList.remove("show-login");
+    });
+
+    loginToggle.addEventListener("click", function (event) {
+      event.preventDefault();
+
+    })

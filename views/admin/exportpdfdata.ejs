@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users List</title>
+    <style>
+        /* Custom styles */
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        table {
+            box-sizing: border-box;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+        }
+        
+        th, td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        td {
+            padding: 15px;
+        }
+
+        td img {
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            margin-top: 10px;
+        }
+
+        .del {
+            animation: roll 3s infinite;
+            background: linear-gradient(to right bottom, blue, green, red, yellow);
+            color: azure;
+        }
+
+        @keyframes roll {
+            0% { transform: rotate(0); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Add your other custom styles and animations here */
+
+    </style>
+</head>
+<body>
+    <div class="table-responsive-md">
+        <table class="table table-striped table-hover table-bordered table-dark align-middle">
+            <thead class="table-light">
+                <caption>Users List</caption>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Image</th>
+                    <th>Verified</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider table-bordered table-hover">
+                <% if (data.length > 0) { %>
+                    <% for (let i = 0; i < data.length; i++) { %>
+                        <tr>
+                            <td><%= data[i].name %></td>
+                            <td><%= data[i].email %></td>
+                            <td><%= data[i].mobile %></td>
+                            <td>
+                                <img src="http://localhost:3000/images/<%= data[i].image %>" alt="">
+                            </td>
+                            <td>
+                                <% if (data[i].is_verified == 1) { %>
+                                    <h4>Verified</h4>
+                                <% } else { %>
+                                    <h4>Not verified</h4>
+                                <% } %>
+                            </td>
+                        </tr>
+                    <% } %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="5">Users not found</td>
+                    </tr>
+                <% } %>
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+    </div>
+    <!-- Add your custom JavaScript for animations if needed -->
+</body>
+</html>
